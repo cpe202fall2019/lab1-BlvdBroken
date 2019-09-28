@@ -15,17 +15,29 @@ def max_list_iter(int_list):  # must use iteration not recursion
       # replaces big_boi with value if bigger than previous big_boi
    return big_boi
 
-def reverse_rec(int_list, iter):  # must use recursion
+
+def reverse_rec(int_list):  # must use recursion
+   temp = int
    if int_list == None:
       raise ValueError
       # returns error if nothing given
-   if iter == None:
-      iter = 0
-      # when someone else uses this method they wont give an iter, but need for recursive so set it to 0 on first run without them having to give an iter
-   tsil_tni.insert(0, int_list[iter])  # puts int_list[iter] at tsil_tni[0] pushing the earlier int_lists back
-   return reverse_rec(int_list, iter + 1) if len(int_list) > iter else tsil_tni  # returns tsil_tni when iter = len(int_list)
+   tsil_tni.append(int_list[0])  # puts int_list[iter] at tsil_tni[0] pushing the earlier int_lists back
+   del int_list[0]
+   return reverse_rec(int_list) if len(int_list) > 1 else tsil_tni  # returns tsil_tni when iter = len(int_list)
+
 
 def bin_search(target, low, high, int_list):  # must use recursion
+   """if int_list is None:
+      raise ValueError
+   if target < int_list[low] or target > int_list[high]:
+      return None
+   mid = ((high - low) // 2) + low
+   if int_list[mid] == target:
+      return mid
+   if high - low <= 2:
+      return None
+   return bin_search(target, mid, high, int_list) if target > int_list[mid] else bin_search(target, low, mid, int_list)"""
+
    found = None  # if target isnt found returns None by default
    if int_list == None:
       raise ValueError
