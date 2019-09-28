@@ -17,13 +17,12 @@ def max_list_iter(int_list):  # must use iteration not recursion
 
 
 def reverse_rec(int_list):  # must use recursion
-   temp = int
    if int_list == None:
       raise ValueError
       # returns error if nothing given
-   tsil_tni.append(int_list[0])  # puts int_list[iter] at tsil_tni[0] pushing the earlier int_lists back
-   del int_list[0]
-   return reverse_rec(int_list) if len(int_list) > 1 else tsil_tni  # returns tsil_tni when iter = len(int_list)
+   tsil_tni.append(int_list[len(int_list) - 1])  # puts int_list[iter] at tsil_tni[0] pushing the earlier int_lists back
+   del int_list[len(int_list) - 1]
+   return reverse_rec(int_list) if len(int_list) > 0 else tsil_tni  # returns tsil_tni when iter = len(int_list)
 
 
 def bin_search(target, low, high, int_list):  # must use recursion
